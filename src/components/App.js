@@ -11,8 +11,6 @@ class App extends Component {
     }
 
 
-
-
     renderPictures = () => (
         this.props.photos.map((post, index) => (
             <Picture
