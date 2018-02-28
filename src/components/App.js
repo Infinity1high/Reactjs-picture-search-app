@@ -15,7 +15,10 @@ class App extends Component {
 
     renderPictures = () => (
         this.props.photos.map((post, index) => (
-            <Picture key={index} imageUrl={`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`}/>
+            <Picture
+                key={index}
+                imageUrl={`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`}
+            />
         ))
     );
 
