@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 
 const FavoritePic = ({imageUrl}) => (
     <div
-        className=""
+        className="FavoritePic"
         style={{
         backgroundImage: `url(${imageUrl})`,
         backgroundColor: "#C0C0C0"
     }}
         >
-        eee
+
     </div>
 );
 FavoritePic.propTypes = {

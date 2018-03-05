@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
 import './App.css';
 import Loader from "./Loader";
 import FavoriteContainer from '../containers/FavoriteContainer';
@@ -47,41 +47,38 @@ class App extends Component {
                 {/*}}/>*/}
 
                 <div className="row">
-                    <nav className='nav'>
-                        <div className="container">
-                            <div className="row">
-                                <div className='col-md-4'>
-
-                                    <div className='input-group mb-3 search'>
-                                        <input
-                                            onChange={(e) => {
-                                                console.log(e);
-                                                this.props.searchTextChangedAction(e.target.value);
-                                                this.props.loadPhotosAction(e.target.value);
-                                                favs = e.target.value;
-                                            }}
-                                        />
-
-                                        <div className="input-group-append">
-                                            <span className="input-group-text saveBtn" onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)} >Save</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='col-md-4'  >
-                                    <Link to='/pictures'>Picture Search </Link>
-                                </div>
-                                <div className="col-md-4">
-                                    <Link to='/favorite'>Favorite </Link>
+                    <nav className='navbar navbar-dark bg-dark'>
+                        <ul className=' navbar-nav '>
+                            <li className="nav-item active">
+                            <Link to='/pictures' className='nav-link' >Picture Search </Link>
+                             </li>
+                            <li>
+                            <Link to='/favorite' className='nav-link'>Favorite </Link>
+                            </li>
+                            <li>
+                            <div className='input-group mb-3 search'>
+                                <input
+                                    onChange={(e) => {
+                                        console.log(e);
+                                        this.props.searchTextChangedAction(e.target.value);
+                                        this.props.loadPhotosAction(e.target.value);
+                                        favs = e.target.value;
+                                    }}
+                                />
+                                <div className="input-group-append">
+                                    <span className="input-group-text saveBtn"
+                                          onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}>Save</span>
                                 </div>
                             </div>
-                        </div>
+                            </li>
+                        </ul>
                     </nav>
                     {loader}
                     <Route path='/pictures' component={PicturesContainer}/>
                     <Route path='/favorite' component={FavoriteContainer}/>
 
                     {/*<div className='flex_container'>*/}
-                        {/*{this.renderPictures()}*/}
+                    {/*{this.renderPictures()}*/}
                     {/*</div> */}
                 </div>
             </div>

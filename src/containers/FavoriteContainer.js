@@ -8,10 +8,10 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = {
-
+    removeFavoriteResults: SearchActions.removeFavoriteResults
 };
 
 export default connect(
     mapStateToProps,
-    null //instead of  mapDispatchToProps as it is empty
+    mapDispatchToProps
 )(Favorite);

@@ -1,12 +1,13 @@
 import axios from "axios/index";
-const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b1b9ec77efa8005894263ccd60021409&format=json&nojsoncallback=1';
-const AUTH_URL = '&auth_token=72157693265171994-e62518929c49189a&api_sig=9741775ae6988f2542c70e2e7e729d70';
+const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d23887505ca0929bf9029fac8768775f&format=json&nojsoncallback=1';
+const AUTH_URL = '&auth_token=72157691111483562-2d2be411a4085a8c&api_sig=886b8c09c6431349c6a5dac0bfcaa497';
 const TEXT_URL = '&text=';
 export const ACTION_SEARCH_TEXT_CHANGED = 'ACTION_SEARCH_TEXT_CHANGED';
 export const ACTION_SEARCH_PHOTOS_LOAD_REQUEST = 'ACTION_SEARCH_PHOTOS_LOAD_REQUEST';
 export const ACTION_SEARCH_PHOTOS_LOAD_SUCCESS = 'ACTION_SEARCH_PHOTOS_LOAD_SUCCESS';
 export const ACTION_SEARCH_PHOTOS_LOAD_FAILURE = 'ACTION_SEARCH_PHOTOS_LOAD_FAILURE';
 export const ACTION_SAVE_FAVORITE_RESULTS = 'ACTION_SAVE_FAVORITE_RESULTS';
+export const ACTION_REMOVE_FAVORITE_RESULTS = 'ACTION_REMOVE_FAVORITE_RESULTS';
 
 
 export function saveFavoriteResults(text_favs, photos_favs) {
@@ -15,6 +16,15 @@ export function saveFavoriteResults(text_favs, photos_favs) {
         payload: {
             text_favs,
             photos_favs
+        }
+    };
+}
+
+export function removeFavoriteResults (removed_item){
+    return {
+        type: ACTION_REMOVE_FAVORITE_RESULTS,
+        payload: {
+            removed_item
         }
     };
 }
