@@ -8,6 +8,7 @@ export const ACTION_SEARCH_PHOTOS_LOAD_SUCCESS = 'ACTION_SEARCH_PHOTOS_LOAD_SUCC
 export const ACTION_SEARCH_PHOTOS_LOAD_FAILURE = 'ACTION_SEARCH_PHOTOS_LOAD_FAILURE';
 export const ACTION_SAVE_FAVORITE_RESULTS = 'ACTION_SAVE_FAVORITE_RESULTS';
 export const ACTION_REMOVE_FAVORITE_RESULTS = 'ACTION_REMOVE_FAVORITE_RESULTS';
+export const ACTION_OPEN_FAVORITE_SECTION = 'ACTION_OPEN_FAVORITE_SECTION';
 
 
 export function saveFavoriteResults(text_favs, photos_favs) {
@@ -15,6 +16,15 @@ export function saveFavoriteResults(text_favs, photos_favs) {
         type: ACTION_SAVE_FAVORITE_RESULTS,
         payload: {
             text_favs,
+            photos_favs
+        }
+    };
+}
+
+export function openFavoriteResults(photos_favs) {
+    return {
+        type: ACTION_OPEN_FAVORITE_SECTION,
+        payload: {
             photos_favs
         }
     };

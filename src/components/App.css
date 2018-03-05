@@ -22,6 +22,9 @@ nav {
 li {
     margin: 10px;
 }
+li a: active {
+    color: #fff;
+}
 
 .search {
     margin-right: 10px;
@@ -58,28 +61,56 @@ li {
     }
 }
 
+/*.favContainer {*/
+    /*width: 100%;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+    /*margin-top: 5px;*/
+
+/*}*/
+
+/*.favPicture {*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*width: 30%;*/
+    /*height: 600px;*/
+    /*margin: 5px;*/
+
+
+/*}*/
+
+/*.FavoritePic {*/
+    /*height: 300px;*/
+    /*background-size: cover;*/
+/*}*/
+/*.favName {*/
+    /*text-align: center;*/
+    /*border: solid;*/
+    /*border-color: #f3f3f3;*/
+    /*border-radius: 5px;*/
+    /*background-color: #f3f3f3;*/
+/*}*/
 .favContainer {
     width: 100%;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     margin-top: 5px;
-
 }
-
 .favPicture {
     display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 600px;
+    flex-direction: row;
+    width: 100%;
+    height: 300px;
     margin: 5px;
 
 
 }
 
 .FavoritePic {
-    height: 300px;
-    background-size: cover;
+    width: 33%;
 }
 .favName {
     text-align: center;
@@ -87,6 +118,7 @@ li {
     border-color: #f3f3f3;
     border-radius: 5px;
     background-color: #f3f3f3;
+    width: 100%;
 }
 .fa {
     float: right;

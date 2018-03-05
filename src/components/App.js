@@ -1,33 +1,23 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Link, Route} from 'react-router-dom';
+import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Loader from "./Loader";
 import FavoriteContainer from '../containers/FavoriteContainer';
 import PicturesContainer from '../containers/PicturesContainer';
+import FavoritePicGroupContainer from '../containers/FavoritePicGroupContainer'
 
 
 class App extends Component {
 
      componentDidMount(){
      this.props.loadPhotosAction();
-
+     console.log(this.props);
     }
 
 
-
-    /*renderPictures = () => (
-        this.props.photos.map((post, index) => (
-            <Picture
-
-                key={index}
-                imageUrl={`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`}
-            />
-        ))
-    );*/
-
-
     render() {
-
+        const currentPath = window.location.pathname;
+        console.log(currentPath);
         let loader;
         let favs;
         if (this.props.loader) {
@@ -43,40 +33,44 @@ class App extends Component {
                 {/*console.log(e);*/}
                 {/*this.props.searchTextChangedAction(e.target.value);*/}
                 {/*this.props.loadPhotosAction(e.target.value);*/}
-
                 {/*}}/>*/}
 
                 <div className="row">
                     <nav className='navbar navbar-dark bg-dark'>
-                        <ul className=' navbar-nav '>
-                            <li className="nav-item active">
-                            <Link to='/pictures' className='nav-link' >Picture Search </Link>
-                             </li>
-                            <li>
-                            <Link to='/favorite' className='nav-link'>Favorite </Link>
+                        <ul className='navbar-nav '>
+                            <li className="nav-item">
+                                <NavLink to='/' exact className='nav-link'>Picture Search </NavLink>
                             </li>
                             <li>
-                            <div className='input-group mb-3 search'>
-                                <input
-                                    onChange={(e) => {
-                                        console.log(e);
-                                        this.props.searchTextChangedAction(e.target.value);
-                                        this.props.loadPhotosAction(e.target.value);
-                                        favs = e.target.value;
-                                    }}
-                                />
-                                <div className="input-group-append">
+                                <NavLink to='/favorite' exact className='nav-link'>Favorite </NavLink>
+                            </li>
+
+                            <li>
+
+                                <div className='input-group mb-3 search'>
+                                    <input
+                                        onChange={(e) => {
+                                            console.log(e);
+                                            this.props.searchTextChangedAction(e.target.value);
+                                            this.props.loadPhotosAction(e.target.value);
+                                            favs = e.target.value;
+                                        }}
+                                    />
+                                    <div className="input-group-append">
                                     <span className="input-group-text saveBtn"
                                           onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}>Save</span>
+                                    </div>
                                 </div>
-                            </div>
+
                             </li>
                         </ul>
                     </nav>
                     {loader}
-                    <Route path='/pictures' component={PicturesContainer}/>
+                    <Switch>
+                    <Route path='/' exact component={PicturesContainer}/>
                     <Route path='/favorite' component={FavoriteContainer}/>
-
+                    <Route path='/favorite/:id' component={FavoritePicGroupContainer}/>
+                    </Switch>
                     {/*<div className='flex_container'>*/}
                     {/*{this.renderPictures()}*/}
                     {/*</div> */}
@@ -90,6 +84,9 @@ class App extends Component {
 }
 
 export default App;
+
+// const currentPath = window.location.pathname
+// {!currentPath.includes(`chatroom/${param}`) ? <Footer /> : null }
 
 
 

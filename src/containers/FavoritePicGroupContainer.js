@@ -1,7 +1,6 @@
 import * as SearchActions from '../store/actions/searchActions';
 
-
-import App from "../components/App";
+import FavoritePicGroup from "../components/Favorite";
 import {connect} from "react-redux";
 
 const mapStateToProps = (store) => ({
@@ -9,12 +8,10 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = {
-    searchTextChangedAction: SearchActions.searchTextChangedAction,
-    loadPhotosAction: SearchActions.loadPhotosAction,
-    saveFavoriteResults: SearchActions.saveFavoriteResults
+    loadPhotosAction: SearchActions.loadPhotosAction
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(FavoritePicGroup);

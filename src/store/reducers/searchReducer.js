@@ -54,6 +54,10 @@ export default  (state = initState, action) => {
                 ...state,
                 photos_favs: updated_photos_favs
             }
+        case SearchActions.ACTION_OPEN_FAVORITE_SECTION:
+            return {
+                ...state,
+            }
         default:
             return state;
     }
