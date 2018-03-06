@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import './App.css';
 import Loader from "./Loader";
@@ -10,34 +10,35 @@ import FavoritePicGroupContainer from '../containers/FavoritePicGroupContainer'
 
 
 class App extends Component {
-
-     componentDidMount(){
-     this.props.loadPhotosAction();
-     console.log(this.props);
+    componentDidMount() {
+        this.props.loadPhotosAction();
+        console.log(this.props);
     }
 
 
     render() {
         let loader;
         if (this.props.loader) {
-            loader = <Loader />
+            loader = <Loader/>
         }
         else {
             loader = ''
         }
         return (
             <BrowserRouter>
-            <div className="container">
-                <div className="row">
-                    <NavbarContainer />
-                    {loader}
-                    <Switch>
-                    <Route path='/' exact component={PicturesContainer}/>
-                    <Route path='/favorite' exact component={FavoriteContainer}/>
-                    <Route path='/favorite/:id' component={FavoritePicGroupContainer}/>
-                    </Switch>
+                <div>
+                    <NavbarContainer/>
+                    <div className="container">
+                        <div className="row">
+                            {loader}
+                            <Switch>
+                                <Route path='/' exact component={PicturesContainer}/>
+                                <Route path='/favorite' exact component={FavoriteContainer}/>
+                                <Route path='/favorite/:id' component={FavoritePicGroupContainer}/>
+                            </Switch>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </BrowserRouter>
         );
 
@@ -47,8 +48,6 @@ class App extends Component {
 
 export default App;
 
-// this.props.match.url  const currentPath = window.location.pathname
-// {!currentPath.includes(`chatroom/${param}`) ? <Footer /> : null }
 
 
 

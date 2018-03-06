@@ -1,45 +1,61 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import { withRouter } from 'react-router'
+import {withRouter} from 'react-router'
 
 
 class Navbar extends Component {
+    componentWillMount() {
+        this.props.history.listen((location, action) => {
+            let search = document.getElementById('search');
+            console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
+            if (location.pathname.includes('/favorite')) {
+                search.classList.add('hidden');
+            }
+            else {
+                search.classList.remove('hidden');
+            }
+        })
+    }
 
     render() {
+
         console.log(this.props.match.url);
         return (
             <nav className='navbar navbar-dark bg-dark'>
-                <ul className='navbar-nav '>
-                    <li className="nav-item">
-                        <NavLink to='/' exact className='nav-link'>Picture Search </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/favorite' exact className='nav-link'>Favorite </NavLink>
-                    </li>
-                    <li>
-                        {!this.props.match.url.includes('favorite') ?
-                        <div className='input-group mb-3 search'>
-                            <input
-                                onChange={(e) => {
-                                    console.log(e);
-                                    this.props.searchTextChangedAction(e.target.value);
-                                    this.props.loadPhotosAction(e.target.value);
-                                }}
-                            />
-                            <div className="input-group-append">
+                <div className='container'>
+                    <ul className='navbar-nav '>
+                        <li className="nav-item">
+                            <NavLink to='/' exact className='nav-link'>Picture Search </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/favorite' exact className='nav-link'>Favorite </NavLink>
+                        </li>
+                        <li>
+                            <div className='input-group mb-3 search' id="search">
+                                <input
+                                    onChange={(e) => {
+                                        console.log(e);
+                                        this.props.searchTextChangedAction(e.target.value);
+                                        this.props.loadPhotosAction(e.target.value);
+                                    }}
+                                />
+                                <div className="input-group-append">
                                 <span className="input-group-text saveBtn"
-                                       onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}
+                                      onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}
                                 >
                                     Save</span>
+                                </div>
                             </div>
-                        </div>
-                            : null }
-                    </li>
-                </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
             </nav>
+
+
         )
     }
 };
-
 
 export default withRouter(Navbar);

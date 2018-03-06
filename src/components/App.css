@@ -2,12 +2,10 @@ nav {
     width: 100%;
 }
 
-
 .navbar-nav {
     margin-top: 25px;
     display: flex !important;
     flex-direction: row !important;
-
     width: 100%;
 }
 
@@ -25,11 +23,24 @@ li {
 li a: active {
     color: #fff;
 }
+li:nth-child(3) {
+    flex-grow: 1;
+    justify-content: flex-end !important;
+    display: flex !important;
+
+
+}
 
 .search {
-    margin-right: 10px;
+    float: right;
+    width: 300px;
+    text-align: end !important;
+    justify-content: end !important;
+    display: flex !important;
+
 }
-.input-group-append {
+
+input {
     float: right;
 }
 
@@ -61,36 +72,6 @@ li a: active {
     }
 }
 
-/*.favContainer {*/
-    /*width: 100%;*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: center;*/
-    /*margin-top: 5px;*/
-
-/*}*/
-
-/*.favPicture {*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*width: 30%;*/
-    /*height: 600px;*/
-    /*margin: 5px;*/
-
-
-/*}*/
-
-/*.FavoritePic {*/
-    /*height: 300px;*/
-    /*background-size: cover;*/
-/*}*/
-/*.favName {*/
-    /*text-align: center;*/
-    /*border: solid;*/
-    /*border-color: #f3f3f3;*/
-    /*border-radius: 5px;*/
-    /*background-color: #f3f3f3;*/
-/*}*/
 .favContainer {
     width: 100%;
     display: flex;
@@ -127,4 +108,7 @@ li a: active {
 }
 .fa:hover {
     color: red;
+}
+.hidden {
+    display: none;
 }

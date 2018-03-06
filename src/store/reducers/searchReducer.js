@@ -6,7 +6,7 @@ const initState = {
     content: '',
     loader: false,
     photos: [],
-    favs: ['name','11'],
+    main_page: true,
     photos_favs: [{
         favs: '',
         photos: []
@@ -54,10 +54,7 @@ export default  (state = initState, action) => {
                 ...state,
                 photos_favs: updated_photos_favs
             }
-        case SearchActions.ACTION_OPEN_FAVORITE_SECTION:
-            return {
-                ...state,
-            }
+
         default:
             return state;
     }
