@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Picture from './Picture';
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 import PropTypes from 'prop-types';
 
 class FavoritePicGroup extends Component {
-    renderPictures = (fav_pics) => (
-        fav_pics.map((post, index) => (
+    renderPictures = () => (
+        this.props.photos_favs[this.props.match.params.id].photos.map((post, index) => (
             <Picture
                 key={index}
                 imageUrl={`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`}
@@ -22,4 +22,4 @@ class FavoritePicGroup extends Component {
     }
 }
 
-export default FavoritePicGroup;
+export default withRouter(FavoritePicGroup);

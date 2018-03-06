@@ -1,6 +1,6 @@
 import * as SearchActions from '../store/actions/searchActions';
 
-import FavoritePicGroup from "../components/FavoritePicGroup";
+import Navbar from "../components/Navbar";
 import {connect} from "react-redux";
 
 const mapStateToProps = (store) => ({
@@ -8,10 +8,12 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = {
-    loadPhotosAction: SearchActions.loadPhotosAction
+    searchTextChangedAction: SearchActions.searchTextChangedAction,
+    loadPhotosAction: SearchActions.loadPhotosAction,
+    saveFavoriteResults: SearchActions.saveFavoriteResults
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(FavoritePicGroup);
+)(Navbar);

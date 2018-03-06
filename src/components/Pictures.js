@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Picture from './Picture';
 
 
+
 class Pictures extends Component {
     renderPictures = () => (
         this.props.photos.map((post, index) => (
@@ -15,13 +16,10 @@ class Pictures extends Component {
     render() {
         console.log(this.props);
         return (
-
             <div className='flex_container'>
                 {this.renderPictures()}
             </div>
         )
     }
-
-
 }
 export default Pictures;

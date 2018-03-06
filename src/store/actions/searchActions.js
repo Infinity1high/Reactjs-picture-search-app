@@ -1,6 +1,6 @@
 import axios from "axios/index";
-const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d23887505ca0929bf9029fac8768775f&format=json&nojsoncallback=1';
-const AUTH_URL = '&auth_token=72157691111483562-2d2be411a4085a8c&api_sig=886b8c09c6431349c6a5dac0bfcaa497';
+const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=93fa20a32f75348b7ba9167fb392e4ef&format=json&nojsoncallback=1';
+const AUTH_URL = '&auth_token=72157666438390278-44dc0c90a3109e64&api_sig=344ff0b82822ed65859990e2735ab32c';
 const TEXT_URL = '&text=';
 export const ACTION_SEARCH_TEXT_CHANGED = 'ACTION_SEARCH_TEXT_CHANGED';
 export const ACTION_SEARCH_PHOTOS_LOAD_REQUEST = 'ACTION_SEARCH_PHOTOS_LOAD_REQUEST';
@@ -9,6 +9,7 @@ export const ACTION_SEARCH_PHOTOS_LOAD_FAILURE = 'ACTION_SEARCH_PHOTOS_LOAD_FAIL
 export const ACTION_SAVE_FAVORITE_RESULTS = 'ACTION_SAVE_FAVORITE_RESULTS';
 export const ACTION_REMOVE_FAVORITE_RESULTS = 'ACTION_REMOVE_FAVORITE_RESULTS';
 export const ACTION_OPEN_FAVORITE_SECTION = 'ACTION_OPEN_FAVORITE_SECTION';
+
 
 
 export function saveFavoriteResults(text_favs, photos_favs) {

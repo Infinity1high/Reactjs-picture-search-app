@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 
-const FavoritePic = ({imageUrl},{index}) => (
+const FavoritePic = ({imageUrl,index}) => (
     <div
         className="FavoritePic"
         style={{

@@ -9,7 +9,6 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = {
 
-
 };
 
 export default connect(

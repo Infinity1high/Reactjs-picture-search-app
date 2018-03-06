@@ -1,22 +1,29 @@
 import React, {Component} from 'react';
 import FavoritePic from './FavoritePic';
 import {Link, Route, BrowserRouter} from 'react-router-dom';
+import {withRouter} from 'react-router';
+import FavoritePicGroupContainer from "../containers/FavoritePicGroupContainer";
+
 
 class Favorite extends Component {
 
-
     renderFavPictures = () => (
         this.props.photos_favs.map((post, index) => {
-            const id= this.props.match.params.path;
-            console.log(id);
+            this.props.match.params.id = index;
+            let id = index;
+            console.log(this.props.match.params.id);
             if (post.photos.length > 0)
                 return (
                     <div key={index}>
-                        <div className='favName'>{post.favs}
-                            <i className="fa fa-trash-o" onClick={() => this.props.removeFavoriteResults(index)}></i>
+                        <div className='favName'>
+                            {post.favs}
+                            <i
+                                className="fa fa-trash-o"
+                               onClick={() => this.props.removeFavoriteResults(index)}>
+
+                            </i>
                         </div>
-                        <Link to={'/favorite/' + index}
-                              >
+                        <Link to={`/favorite/${index}`} >
                         <div className='favPicture'>
                             {post.photos.slice(0, 6).map((item, key1) => (
                                 <FavoritePic
@@ -34,13 +41,14 @@ class Favorite extends Component {
     render() {
         console.log(this.props);
         return (
-            <BrowserRouter>
+
             <div className='favContainer'>
                 {this.renderFavPictures()}
             </div>
-            </BrowserRouter>
+
+
 
         )
     }
 }
-export default Favorite;
+export default withRouter(Favorite);
