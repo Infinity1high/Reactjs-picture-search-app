@@ -31,7 +31,6 @@ li:nth-child(3) {
 
 }
 
-
 input {
     float: right;
 }
@@ -51,8 +50,13 @@ input {
     animation: spin 2s linear infinite;
 
     position: absolute;
-    left: 50%;
-    top: 20%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*left: 50%;*/
+    /*top: 20%;*/
 }
 
 @keyframes spin {
@@ -103,4 +107,9 @@ input {
 }
 .hidden {
     display: none;
+}
+
+.footer {
+    font-size: 50px;
+    color: black !important;
 }

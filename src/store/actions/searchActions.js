@@ -10,6 +10,7 @@ export const ACTION_SEARCH_PHOTOS_LOAD_SUCCESS = 'ACTION_SEARCH_PHOTOS_LOAD_SUCC
 export const ACTION_SEARCH_PHOTOS_LOAD_FAILURE = 'ACTION_SEARCH_PHOTOS_LOAD_FAILURE';
 export const ACTION_SAVE_FAVORITE_RESULTS = 'ACTION_SAVE_FAVORITE_RESULTS';
 export const ACTION_REMOVE_FAVORITE_RESULTS = 'ACTION_REMOVE_FAVORITE_RESULTS';
+export const ACTION_OPEN_MODAL = 'ACTION_OPEN_MODAL';
 
 
 
@@ -24,7 +25,14 @@ export function saveFavoriteResults(text_favs, photos_favs) {
     };
 }
 
-
+export function openModal (img_url) {
+    return {
+        type: ACTION_OPEN_MODAL,
+        payload: {
+            img_url
+        }
+    }
+}
 
 export function removeFavoriteResults (removed_item){
     return {

@@ -8,10 +8,11 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = {
+    openModal: SearchActions.openModal
 
 };
 
 export default connect(
     mapStateToProps,
-    null //instead of  mapDispatchToProps as it is empty
+    mapDispatchToProps //instead of  mapDispatchToProps as it is empty
 )(Pictures);

@@ -11,7 +11,8 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = {
     searchTextChangedAction: SearchActions.searchTextChangedAction,
     loadPhotosAction: SearchActions.loadPhotosAction,
-    saveFavoriteResults: SearchActions.saveFavoriteResults
+    saveFavoriteResults: SearchActions.saveFavoriteResults,
+    openModal: SearchActions.openModal
 };
 
 export default connect(

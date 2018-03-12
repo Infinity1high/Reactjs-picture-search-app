@@ -1,12 +1,13 @@
 import * as SearchActions from '../actions/searchActions';
-import {ACTION_LOCATION_CHANGE} from "../actions/searchActions";
+
 
 
 const initState = {
     content: '',
     loader: false,
     photos: [],
-    main_page: true,
+    modal: false,
+    modal_photo: '',
     photos_favs: [{
         favs: '',
         photos: []
@@ -52,6 +53,12 @@ export default  (state = initState, action) => {
             return {
                 ...state,
                 photos_favs: updated_photos_favs
+            }
+        case SearchActions.ACTION_OPEN_MODAL:
+            return {
+                ...state,
+                modal: !state.modal,
+                modal_photo: action.payload.img_url
             }
 
         default:
