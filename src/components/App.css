@@ -31,14 +31,6 @@ li:nth-child(3) {
 
 }
 
-.search {
-    float: right;
-    width: 300px;
-    text-align: end !important;
-    justify-content: end !important;
-    display: flex !important;
-
-}
 
 input {
     float: right;

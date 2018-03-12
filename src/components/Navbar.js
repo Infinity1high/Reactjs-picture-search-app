@@ -4,8 +4,10 @@ import {withRouter} from 'react-router'
 
 
 class Navbar extends Component {
+
     componentWillMount() {
-        this.props.history.listen((location, action) => {
+        console.log('mounting');
+        this.props.history.listen((location) => {
             let search = document.getElementById('search');
             console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
             if (location.pathname.includes('/favorite')) {
@@ -14,7 +16,8 @@ class Navbar extends Component {
             else {
                 search.classList.remove('hidden');
             }
-        })
+        });
+
     }
 
     render() {
@@ -39,12 +42,15 @@ class Navbar extends Component {
                                         this.props.loadPhotosAction(e.target.value);
                                     }}
                                 />
-                                <div className="input-group-append">
-                                <span className="input-group-text saveBtn"
+                                <div className="input-group-append " id='search'>
+                                <span
+                                      className="input-group-text saveBtn"
                                       onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}
                                 >
                                     Save</span>
                                 </div>
+
+
                             </div>
                         </li>
 

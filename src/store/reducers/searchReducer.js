@@ -44,8 +44,7 @@ export default  (state = initState, action) => {
                         photos: action.payload.photos_favs, //get pics from input
                     }
                 ]
-                // favs: [...state.favs,
-                //     action.payload.text],
+
             }
         case SearchActions.ACTION_REMOVE_FAVORITE_RESULTS:
             const updated_photos_favs = [...state.photos_favs];
