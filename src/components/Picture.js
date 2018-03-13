@@ -9,8 +9,7 @@ const Picture = ({imageUrl, click}) => (
             backgroundImage: `url(${imageUrl})`,
             backgroundColor: "#C0C0C0",
         }}
-        onClick = {click}
-
+        onClick={click}
     >
     </div>
 );

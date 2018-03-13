@@ -7,7 +7,10 @@ const initState = {
     loader: false,
     photos: [],
     modal: false,
-    modal_photo: '',
+    modal_photo: {
+        url: '',
+        index: ''
+    },
     photos_favs: [{
         favs: '',
         photos: []
@@ -58,8 +61,18 @@ export default  (state = initState, action) => {
             return {
                 ...state,
                 modal: !state.modal,
-                modal_photo: action.payload.img_url
+                modal_photo: {
+                    url: action.payload.img_url,
+                    index: action.payload.index
+                }
             }
+        case SearchActions.ACTION_LOAD_NEXT_PHOTO:
+                return {
+                    ...state,
+                    modal_photo: {
+                        index: action.payload.index
+                    }
+                }
 
         default:
             return state;

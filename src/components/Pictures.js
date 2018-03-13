@@ -13,9 +13,9 @@ class Pictures extends Component {
             <Picture
                 key={index}
                 imageUrl={`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`}
-                click = {() => this.openModal(`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`)}
+                click={() => this.openModal(`https://farm${post.farm}.staticflickr.com/${post.server}/${post.id}_${post.secret}.jpg`, {index})}
             />
-    ))
+        ))
     );
 
 
@@ -27,7 +27,7 @@ class Pictures extends Component {
                 {this.renderPictures()}
                 <Modal show={this.props.modal}
                        onClose={this.openModal}
-                       src={this.props.modal_photo}>
+                       src={this.props.modal_photo.url}>
                 </Modal>
             </div>
         )

@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-
-
-const FavoritePic = ({imageUrl,index}) => (
+const FavoritePic = ({imageUrl, index}) => (
     <div
         className="FavoritePic"
         style={{
-        backgroundImage: `url(${imageUrl})`,
-        backgroundColor: "#C0C0C0"
-    }}
-        >
+            backgroundImage: `url(${imageUrl})`,
+            backgroundColor: "#C0C0C0"
+        }}
+    >
 
     </div>
 );

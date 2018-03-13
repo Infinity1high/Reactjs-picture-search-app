@@ -8,7 +8,13 @@ nav {
     flex-direction: row !important;
     width: 100%;
 }
-
+.search{
+    float: right;
+     width: 300px;
+     text-align: end !important;
+    justify-content: end !important;
+    display: flex ;
+}
 .cont {
     width: 30%;
     display: inline-flex;
@@ -26,9 +32,7 @@ li a: active {
 li:nth-child(3) {
     flex-grow: 1;
     justify-content: flex-end !important;
-    display: flex !important;
-
-
+    display: flex ;
 }
 
 input {
@@ -71,23 +75,27 @@ input {
 .favContainer {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
     margin-top: 5px;
+}
+.favDiv {
+    width: 32%;
+    margin-right: 5px;
 }
 .favPicture {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 300px;
-    margin: 5px;
+    height: 200px;
+
 
 
 }
 
 .FavoritePic {
-    width: 33%;
+    width: 100%;
 }
 .favName {
     text-align: center;

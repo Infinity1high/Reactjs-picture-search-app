@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Loader = ()=> (
+const Loader = () => (
     <div className='loaderContainer'>
-        <div className='loader'>     </div>
-     </div>
+        <div className='loader'></div>
+    </div>
 );
 
 export default Loader;

@@ -15,6 +15,11 @@ class App extends Component {
         console.log(this.props);
     }
 
+    componentWillMount() {
+        console.log('mounting');
+
+    }
+
 
     render() {
         let loader;

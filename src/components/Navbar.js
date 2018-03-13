@@ -4,21 +4,21 @@ import {withRouter} from 'react-router'
 
 
 class Navbar extends Component {
-
     componentWillMount() {
         console.log('mounting');
         this.props.history.listen((location) => {
-            let search = document.getElementById('search');
+            const search = document.getElementById('search');
             console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
             if (location.pathname.includes('/favorite')) {
-                search.classList.add('hidden');
+                search.classList.add('d-none');
             }
             else {
-                search.classList.remove('hidden');
+                search.classList.remove('d-none');
             }
         });
 
     }
+
 
     render() {
 
@@ -34,7 +34,7 @@ class Navbar extends Component {
                             <NavLink to='/favorite' exact className='nav-link'>Favorite </NavLink>
                         </li>
                         <li>
-                            <div className='input-group mb-3 search' id="search">
+                            <div className='input-group mb-3 search' id="search" >
                                 <input
                                     onChange={(e) => {
                                         console.log(e);
@@ -42,10 +42,10 @@ class Navbar extends Component {
                                         this.props.loadPhotosAction(e.target.value);
                                     }}
                                 />
-                                <div className="input-group-append " id='search'>
+                                <div className="input-group-append"  >
                                 <span
-                                      className="input-group-text saveBtn"
-                                      onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}
+                                    className="input-group-text saveBtn"
+                                    onClick={() => this.props.saveFavoriteResults(this.props.content, this.props.photos)}
                                 >
                                     Save</span>
                                 </div>

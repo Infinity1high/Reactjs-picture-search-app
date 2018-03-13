@@ -8,7 +8,9 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = {
-    loadPhotosAction: SearchActions.loadPhotosAction
+    loadPhotosAction: SearchActions.loadPhotosAction,
+    openModal: SearchActions.openModal,
+    loadNextPhoto: SearchActions.loadNextPhoto
 };
 
 export default connect(

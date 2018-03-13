@@ -1,9 +1,8 @@
 import axios from "axios/index";
-const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1f151ce655586c89d045c055df10edf6&text=&format=json&nojsoncallback=1';
+const SERVER_URL = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d4d4115f135db75f97687b564ae5ff9d&format=json&nojsoncallback=1';
 const SERVER_URL_1 = '//api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1f151ce655586c89d045c055df10edf6&format=json&nojsoncallback=1';
-const AUTH_URL = '&auth_token=72157666438390278-44dc0c90a3109e64&api_sig=344ff0b82822ed65859990e2735ab32c';
+const AUTH_URL = '&auth_token=72157664634306637-30c1b9fc5618bbda&api_sig=8aee7905ba9019fb5b531e75dc5d6879';
 const TEXT_URL = '&text='
-
 export const ACTION_SEARCH_TEXT_CHANGED = 'ACTION_SEARCH_TEXT_CHANGED';
 export const ACTION_SEARCH_PHOTOS_LOAD_REQUEST = 'ACTION_SEARCH_PHOTOS_LOAD_REQUEST';
 export const ACTION_SEARCH_PHOTOS_LOAD_SUCCESS = 'ACTION_SEARCH_PHOTOS_LOAD_SUCCESS';
@@ -11,6 +10,8 @@ export const ACTION_SEARCH_PHOTOS_LOAD_FAILURE = 'ACTION_SEARCH_PHOTOS_LOAD_FAIL
 export const ACTION_SAVE_FAVORITE_RESULTS = 'ACTION_SAVE_FAVORITE_RESULTS';
 export const ACTION_REMOVE_FAVORITE_RESULTS = 'ACTION_REMOVE_FAVORITE_RESULTS';
 export const ACTION_OPEN_MODAL = 'ACTION_OPEN_MODAL';
+export const ACTION_LOAD_NEXT_PHOTO= 'ACTION_LOAD_NEXT_PHOTO';
+
 
 
 
@@ -23,15 +24,6 @@ export function saveFavoriteResults(text_favs, photos_favs) {
             photos_favs
         }
     };
-}
-
-export function openModal (img_url) {
-    return {
-        type: ACTION_OPEN_MODAL,
-        payload: {
-            img_url
-        }
-    }
 }
 
 export function removeFavoriteResults (removed_item){
@@ -56,7 +48,7 @@ export function loadPhotosAction(searchText) {
         dispatch({type: ACTION_SEARCH_PHOTOS_LOAD_REQUEST});
         var URL;
         if (searchText===''){
-            URL = SERVER_URL_1;
+            URL = SERVER_URL+AUTH_URL;
         }
         else {
             URL = SERVER_URL+TEXT_URL+searchText;
@@ -73,3 +65,23 @@ export function loadPhotosAction(searchText) {
                 .catch((err) => dispatch({type: ACTION_SEARCH_PHOTOS_LOAD_FAILURE, payload: {err}}))
             };
 }
+
+export function openModal (img_url, index) {
+    return {
+        type: ACTION_OPEN_MODAL,
+        payload: {
+            img_url,
+            index
+        }
+    }
+}
+
+export function loadNextPhoto (index) {
+    return {
+        type: ACTION_LOAD_NEXT_PHOTO,
+        payload: {
+            index
+        }
+    }
+}
+

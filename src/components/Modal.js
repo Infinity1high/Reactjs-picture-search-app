@@ -20,18 +20,7 @@ class Modal extends React.Component {
         };
 
         // The modal "window"
-        const modalStyle = {
-            position: 'fixed',
-            backgroundColor: '#fff',
-            borderRadius: 5,
-            width: 400,
-            height: 400,
-            maxWidth: 500,
-            minHeight: 300,
-            margin: '0 auto',
-            padding: 30,
-            textAlign: 'center'
-        };
+
         const imageStyle = {
             borderRadius: 5,
             position: 'absolute',
@@ -45,9 +34,9 @@ class Modal extends React.Component {
         return (
             <div className="backdrop" style={backdropStyle}>
 
-                <img style={imageStyle} src={this.props.src}/>
+                <img alt = '' style={imageStyle} src={this.props.src}/>
                 <div className="footer">
-                        <i onClick={this.props.onClose} class="fa fa-close"></i>
+                    <i onClick={this.props.onClose} className="fa fa-close"></i>
                 </div>
 
             </div>
